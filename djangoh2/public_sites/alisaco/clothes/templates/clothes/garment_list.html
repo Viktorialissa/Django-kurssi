@@ -1,0 +1,10 @@
+{% extends "clothes/base.html"%}
+
+{% block "content" %}
+	<div style="background-color:pink; margin-right:550px; text-align:center; padding-bottom:10px; padding-top:5px">
+		<h2>Clothes</h2>
+			{% for garment in garment_list %}
+				<p>{{garment.pk}}. {{ garment.name}}, {{garment.get_color_display}}</p>
+			{% endfor %}
+	</div>
+{% endblock "content" %}
