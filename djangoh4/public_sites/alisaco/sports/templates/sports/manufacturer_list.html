@@ -1,0 +1,20 @@
+{% extends "sports/base.html" %}
+
+{% block "content" %}
+	<h3>Welcome!</h3>
+	{% for object in object_list %}
+		<p>
+			<a href="/manufacturer/{{ object.pk }}">{{ object }}</a>
+			{% for equipment in object.equipments.all %}
+				<p>{{ equipment }}</p>
+			{% endfor %}
+		<!--	<b>Created: </b>{{ object.created }}
+			<b>Modified: </b>{{ object.modified }}-->
+		<!--	{% if object.manufacturer %}
+				<a href="/manufacturer/{{ object.manufacturer.pk }}">{{ object.manufacturer }}</a>
+			{% endif %}-->
+		</p>
+	{% endfor %}
+	<p><a href="/equipment/new">Add equipment</a></p>
+	<p><a href="/manufacturer/new">Add manufacturer</a></p>
+{% endblock "content" %}

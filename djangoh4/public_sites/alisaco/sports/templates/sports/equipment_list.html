@@ -2,15 +2,17 @@
 
 {% block "content" %}
 	<h3>Welcome!</h3>
-	{% for object in object_list %}
+	{% for equipment in object_list %}
 		<p>
-			<a href="/equipment/{{ object.pk }}">{{ object.name }}</a>
-			<b>Created: </b>{{ object.created }}
-			<b>Modified: </b>{{ object.modified }}
-			{% if object.manufacturer %}
-				<a href="/manufacturer/{{ object.manufacturer.pk }}">{{ object.manufacturer }}</a>
+			<a href="/equipment/{{ equipment.pk }}">{{ equipment.name }}</a>
+			<b>Created: </b>{{ equipment.created }}
+			<b>Modified: </b>{{ equipment.modified }}
+			{% if equipment.manufacturer %}
+				<a href="/manufacturer/{{ equipment.manufacturer.pk }}">{{ equipment.manufacturer }}</a>
 			{% endif %}
 		</p>
+	{% empty %}
+	    <p>No equipment added yet.</p>
 	{% endfor %}
 	<p><a href="/equipment/new">Add equipment</a></p>
 	<p><a href="/manufacturer/new">Add manufacturer</a></p>
