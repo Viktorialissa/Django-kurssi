@@ -1,0 +1,21 @@
+{% extends "sportdiary/base.html" %}
+
+{% block "content" %}
+<div style="text-align:center">
+	<h3>Sport locations:</h3>
+	{% for object in object_list %}
+		<p>{{ object }}
+			{% for location in object.locations.all %}
+				<p> - {{ location }}</p>
+			{% endfor %}
+		<!--	<b>Created: </b>{{ object.created }}
+			<b>Modified: </b>{{ object.modified }}-->
+		<!--	{% if object.manufacturer %}
+				<a href="/manufacturer/{{ object.manufacturer.pk }}">{{ object.manufacturer }}</a>
+			{% endif %}-->
+		</p>
+	{% endfor %}
+	<p><a href="/diary/new" style="color: #337ab7; text-decoration: none;">Add workout</a></p>
+	<p><a href="/location/new" style="color: #337ab7; text-decoration: none;">Add location</a></p>
+</div>
+{% endblock "content" %}

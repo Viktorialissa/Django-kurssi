@@ -1,0 +1,24 @@
+{% extends "sportdiary/base.html" %}
+
+{% block "content" %}
+<div style="text-align:center">
+	<h3>Add your workouts here:</h3>
+	{% for object in object_list %}
+		<p>	<b>Created: </b>{{ object.created }}</p>
+		<p style="padding-left:10px">
+			<a href="/diary/{{ object.pk }}" style="color: #337ab7; text-decoration: none;">{{ object.name }}</a>
+		</p>
+		{% if object.duration %}
+			<p style="padding-left:10px">-Duration: {{object.duration}} (min)</p>
+		{% endif %}
+		{% if object.duration %}
+			<p style="padding-left:10px">-Description:</p>
+			<p style="padding-left:20px; font-size:15px"><i>{{object.description}}</i></p>
+		{% endif %}
+	{% empty %}
+		    <p>No workout added yet.</p>
+	{% endfor %}
+	<p><a href="/diary/new" style="color: #337ab7; text-decoration: none;">Add workout</a></p>
+	<p><a href="/location" style="color: #337ab7; text-decoration: none;">Location</a></p>
+</div>
+{% endblock "content" %}

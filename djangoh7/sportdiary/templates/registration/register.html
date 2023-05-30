@@ -1,0 +1,12 @@
+{% extends "sportdiary/base.html" %}
+
+{% block "content" %}
+	<div style="text-align:center">
+        <form method=post>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type=submit value="Register"style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-bottom:15px">
+        </form>
+		<p><a href="/" style="color: #337ab7; text-decoration: none;">Cancel</a></p>
+	</div> 
+{% endblock "content" %}
